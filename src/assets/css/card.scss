@@ -1,0 +1,55 @@
+// ========= LeadCards ===========
+
+.main-lead-cards{
+    background-color: #fff;
+    gap: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+    .card-body{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 30px;
+        .card-icon{
+            background-color: #e2ebff;
+            color: #1e4db7;
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                font-size: 32px;
+            }
+        }
+        .card-heading{
+            .card-tagline{
+                font-size: 14px;
+                color: #6c6c6c;
+            }
+            .card-data{
+                font-size: 28px;
+                font-weight: 600;
+                color: #222;
+            }
+        }
+    }
+    .card-footer{
+        padding: 20px 30px;
+        background-color: #eef2f780;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .number-data{
+            display: flex;
+            align-items: center;
+            // gap: 10px;
+            color: #11c84e;
+        }
+        .item-details{
+            font-size: 14px;
+            color: #6c6c6c;
+        }
+    }
+}

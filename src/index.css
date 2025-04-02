@@ -1,0 +1,29 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+img{
+  width: 100%;
+  height: auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+/* ======== fonts ======== */
+
+@font-face {
+  font-family: "DM Sans", sans-serif;
+  src: url(./assets/font/dm-sans/DMSans-Italic-VariableFont_opsz\,wght.ttf);
+}
+
+body{
+  font-family: "DM Sans", sans-serif;
+}
