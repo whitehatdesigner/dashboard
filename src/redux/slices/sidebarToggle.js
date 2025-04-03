@@ -9,9 +9,6 @@ export const sidebarSlice = createSlice({
   initialState,
   reducers: {
     toggle: (state) => {
-
-        // console.log(state.value);
-        // console.log(!state.value);
       state.value = !state.value
     },
   },
