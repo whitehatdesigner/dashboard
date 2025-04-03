@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { useState } from 'react';
+import { ShopProducts } from './ShopProducts';
+
+
+// const [products, setProducts] = useState();
+
 
 const initialState = {
-  value: false,
+  value: ShopProducts,
 }
 
 export const productItemsSlice = createSlice({
@@ -9,7 +15,8 @@ export const productItemsSlice = createSlice({
   initialState,
   reducers: {
     producstList: (state) => {
-      state.value = !state.value
+      console.log(state);
+      
     },
   },
 })

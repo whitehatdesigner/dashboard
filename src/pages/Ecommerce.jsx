@@ -3,7 +3,7 @@ import LeadCards from '../components/cards/LeadCards'
 
 const Ecommerce = () => {
   return (
-    <div className='main-dashboard main-body'>
+    <div className='main-dashboard'>
       <div className="lead-cards">
         <LeadCards/>
         <LeadCards/>

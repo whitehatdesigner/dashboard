@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import DataArea from '../components/DataArea'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Ecommerce from './Ecommerce'
 
 const Dashboard = () => {
 
@@ -20,8 +21,8 @@ const Dashboard = () => {
         <div className="header">
           <Header />
         </div>
-        <div className="data-area">
-          {location.pathname === "/" ? <DataArea /> : <Outlet />}
+        <div className="data-area main-body">
+          {location.pathname === "/" ? <Ecommerce /> : <Outlet />}
         </div>
       </div>
 

@@ -27,3 +27,15 @@ ul{
 body{
   font-family: "DM Sans", sans-serif;
 }
+
+/* ======== button ============ */
+
+.primary-btn{
+  display: inline-block;
+  background-color: #ff6c2f;
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  /* font-size: 16px; */
+}
