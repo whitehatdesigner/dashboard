@@ -11,6 +11,8 @@ export const ShopProducts = [
         subCategory: "Topwear",
         sizes: ["S", "M", "L"],
         date: 1716634345448,
+        stock: 486,
+      sold: 155,
         bestseller: true
     },
     {

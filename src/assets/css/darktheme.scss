@@ -1,0 +1,46 @@
+.darkmode-active{
+    .main-sidebar{
+        background-color: #292929;
+        .primary-menu{
+            .nav-menu, .sub-nav-btn{
+                color: #fff !important;
+            }
+        }
+    }
+    .dashboard{
+        .right-side {
+            transition: all .2s linear;
+            width: 100%;
+            background-color: #202020;
+            color: #fff !important;
+        }
+    } 
+
+    .addProducts{
+        .box{
+            background-color: #3b3b3b;
+        }
+    } 
+    .products-information{
+        .group-box label{
+            color: #fff;
+        }
+    }
+    .preview-product{
+        h4,.item-category,.preview-heading{
+            color: #fff !important;
+        }
+        .price{
+            .item-price,.discount-price,.discount{
+                color: #fff !important;
+            }
+        }
+        .size-details{
+            ul{
+                li{
+                    background-color: #202020 !important;
+                }
+            }
+        }
+    }
+}

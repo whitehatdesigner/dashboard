@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Images } from '../assets/images/images'
 import Navigation from './Navigation'
-import { useSelector } from 'react-redux'
 
 const SideBar = () => {
 
@@ -10,7 +9,7 @@ const SideBar = () => {
     <div className={`main-sidebar`}>
 
     <div className="logo">
-      <Link>
+      <Link to={'/ecommerce'}>
       <img src={Images.logo} alt="" />
       </Link>
     </div>

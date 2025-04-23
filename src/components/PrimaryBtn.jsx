@@ -1,9 +1,9 @@
 import React from 'react'
 
-const PrimaryBtn = () => {
+const PrimaryBtn = (props) => {
   return (
    <button className='primary-btn'>
-    Add Products
+    {props.name}
    </button>
   )
 }

@@ -11,6 +11,10 @@ import ProductsList from './pages/ProductsList'
 import AllOrders from './pages/AllOrders'
 import PandingOrders from './pages/PandingOrders'
 import ReturnOrders from './pages/ReturnOrders'
+import Customers from './pages/Customers'
+import CustomerDetails from './pages/CustomerDetails'
+import Discounts from './pages/Discounts'
+import AdminProfile from './pages/AdminProfile'
 
 
 const router = createBrowserRouter(
@@ -60,7 +64,23 @@ const router = createBrowserRouter(
           path:"/users",
           element:<Users/>
         },
-
+        {
+          path:"/customers",
+          element:<Customers/>
+        },
+        {
+          path:"/customer-details/:customerId",
+          element:<CustomerDetails/>
+        },
+        {
+          path:"/discount",
+          element:<Discounts/>
+        },
+        {
+          path:"/admin-profile",
+          element:<AdminProfile/>
+        },
+        
       ]
     }
   ]

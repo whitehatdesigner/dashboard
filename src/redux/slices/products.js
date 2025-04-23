@@ -14,9 +14,9 @@ export const productItemsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    producstList: (state) => {
-      console.log(state);
-      
+    producstList: (state, actions) => {
+  
+    state.value = actions.payload;    
     },
   },
 })

@@ -6,79 +6,48 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { CiEdit } from 'react-icons/ci';
 import { MdOutlineDelete } from 'react-icons/md';
 import { Images } from '../assets/images/images';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilterProducts, selectPaginatedProducts, selectTotalPages, setCurrentPage, setItemsPerPage, setSearchTerm } from '../redux/slices/productsSlices';
 
 
 const ProductsList = () => {
-  const products = [
-    {
-      image: Images.dummyImg,
-      name: 'Black T-shirt',
-      sizes: ['S', 'M', 'L', 'XL'],
-      price: 80.00,
-      stock: 486,
-      sold: 155,
-      category: 'Fashion',
-      rating: 4.5,
-      reviews: 55
-    },
-    {
-      image: Images.dummyImg,
-      name: 'Olive Green Leather Bag',
-      sizes: ['S', 'M'],
-      price: 136.00,
-      stock: 784,
-      sold: 674,
-      category: 'Hand Bag',
-      rating: 4.1,
-      reviews: 143
-    },
-    {
-      image: Images.dummyImg,
-      name: 'Women Golden Dress',
-      sizes: ['S', 'M'],
-      price: 219.00,
-      stock: 769,
-      sold: 180,
-      category: 'Fashion',
-      rating: 4.4,
-      reviews: 174
-    },
-    {
-      image: Images.dummyImg,
-      name: 'Gray Cap For Men',
-      sizes: ['S', 'M', 'L'],
-      price: 76.00,
-      stock: 571,
-      sold: 87,
-      category: 'Cap',
-      rating: 4.2,
-      reviews: 23
-    }
-  ];
+
+  const dispatch = useDispatch();
+  const paginatedProducts = useSelector(selectPaginatedProducts);
+  const currentPage = useSelector(state => state.productSlice.currentPage);
+  const itemsPerPage = useSelector(state => state.productSlice.itemsPerPage);
+  const totalPages = useSelector(selectTotalPages);
+
+  const handleSearch = (e) => {
+    dispatch(setSearchTerm(e.target.value));
+  };
+
+  const handlePageChange = (page) => {
+    dispatch(setCurrentPage(page));
+  };
+
+  const handleItemsPerPageChange = (e) => {
+    dispatch(setItemsPerPage(Number(e.target.value)));
+    dispatch(setCurrentPage(1)); 
+  };
 
   return (
     <div className="product-table-container">
-      
+
       <div className="productList-features">
         <div className="shortList">
-          <select>
-            <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
-            <option value="1">4</option>
-            <option value="1">5</option>
-            <option value="1">6</option>
-            <option value="1">7</option>
-            <option value="1">9</option>
-            <option value="1">10</option>
+          <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
           </select>
           Entries per page
         </div>
         <div className='right-part'>
-            <Link to={`javascript:void(0)`}><PrimaryBtn/></Link>
+          <Link to={`/addproducts`}><PrimaryBtn name={'Add Product'} /></Link>
           <div className="search-box">
             <label htmlFor="search">Search:</label>
-            <input type="text" placeholder='Search items...' />
+            <input type="text" placeholder='Search items...' onChange={handleSearch} />
           </div>
         </div>
       </div>
@@ -97,13 +66,13 @@ const ProductsList = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => (
+          {paginatedProducts.map((product, index) => (
             <tr key={index}>
-              <td><input type="checkbox"/></td>
+              <td><input type="checkbox" /></td>
               <td>{index}</td>
               <td className='product-details'>
                 <div className="product-img">
-                  <img src={product.image} alt="img" />
+                  <img src={product.image[0]} alt="img" />
                 </div>
                 <div className="product-info">
                   <div className="product-name">{product.name}</div>
@@ -130,13 +99,13 @@ const ProductsList = () => {
               <td>
                 <div className="action-buttons">
                   <button className="cart-button">
-                  <IoEyeOutline />
+                    <IoEyeOutline />
                   </button>
                   <button className="edit-button">
-                  <CiEdit />
+                    <CiEdit />
                   </button>
                   <button className="delete-button">
-                  <MdOutlineDelete />
+                    <MdOutlineDelete />
                   </button>
                 </div>
               </td>
@@ -146,11 +115,23 @@ const ProductsList = () => {
       </table>
       <div className="pagination">
         <ul>
-          <li><Link to={'javascript:void(0)'}>Previous</Link></li>
-          <li className='active-pagination'><Link to={'javascript:void(0)'}>1</Link></li>
-          <li><Link to={'javascript:void(0)'}>2</Link></li>
-          <li><Link to={'javascript:void(0)'}>3</Link></li>
-          <li><Link to={'javascript:void(0)'}>Next</Link></li>
+          <li><Link to={'javascript:void(0)'} onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}>Previous</Link></li>
+
+          {[...Array(totalPages)].map((_, i) => (
+            <li>
+            <Link
+              key={i}
+              onClick={() => handlePageChange(i + 1)}
+              className={currentPage === i + 1 ? 'active-pagination' : ''}
+            >
+              {i + 1}
+            </Link>
+            </li>
+          ))}
+
+          <li><Link to={'javascript:void(0)'}  onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}>Next</Link></li>
         </ul>
       </div>
     </div>
