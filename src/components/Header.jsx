@@ -9,9 +9,9 @@ import { MdAttachMoney } from 'react-icons/md'
 import { FaRegMessage, FaRegUser } from 'react-icons/fa6'
 import { CiCloudSun } from 'react-icons/ci'
 import { darkModeToggle } from '../redux/slices/darkModeSlice'
+import { logout } from '../redux/slices/authSlice'
 
 const Header = () => {
-
   const [showDropdown, setShowDropdown] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -50,6 +50,14 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
+  const user = useSelector((state) => state.auth.currentUser);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.clear();
+    navigate('/login');
+  };
+
   return (
     <div className='main-header'>
       <div className="menu-icon" onClick={() => dispatch(toggle())}>
@@ -69,7 +77,7 @@ const Header = () => {
             <img src={Images.profileIcon} alt="profile icon" />
           </div>
           <div className="admin-name">
-            <p>Hi.. <span><b>Ankit Shukla</b></span></p>
+            <p>Hi.. <span><b>{user?.firstname}</b></span></p>
           </div>
 
 
@@ -83,7 +91,7 @@ const Header = () => {
                   <li><Link to={"/admin-profile"}><FaRegUser /> Profile</Link></li>
                   <li><Link to={"javascript:void(0)"}><FaRegMessage /> Message</Link></li>
                   <li><Link to={"javascript:void(0)"}> <MdAttachMoney /> Pricing</Link></li>
-                  <li className='logout-btn'><Link to={"javascript:void(0)"}><IoIosLogOut /> Logout</Link></li>
+                  <li className='logout-btn' onClick={handleLogout}><IoIosLogOut /> Logout</li>
                 </ul>
               </div>
             </div>

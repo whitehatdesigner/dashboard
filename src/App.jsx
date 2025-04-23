@@ -15,13 +15,19 @@ import Customers from './pages/Customers'
 import CustomerDetails from './pages/CustomerDetails'
 import Discounts from './pages/Discounts'
 import AdminProfile from './pages/AdminProfile'
+import Login from './pages/Login'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 const router = createBrowserRouter(
   [
     {
       path:"/",
-      element: <Dashboard/>,
+      element: (
+        <ProtectedRoute> 
+          <Dashboard/>
+        </ProtectedRoute>
+      ) ,
       children:[
         {
           path:"/ecommerce",
@@ -82,6 +88,10 @@ const router = createBrowserRouter(
         },
         
       ]
+    },
+    {
+      path:"/login",
+      element: <Login/>
     }
   ]
 )

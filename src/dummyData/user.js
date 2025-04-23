@@ -7,7 +7,7 @@ export const adminProfile = [
         firstname: "Ankit",
         lastname: "Shukla",
         dob: "05-03-2003",
-        emailAddress: "ankitshukla828774@gmail.com",
+        emailAddress: "test@gmail.com",
         phoneNumber: "9899-506-105",
         password: "1234",
         useRole: "Admin",

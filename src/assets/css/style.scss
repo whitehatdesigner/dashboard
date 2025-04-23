@@ -1151,3 +1151,47 @@
         }
     }
 }
+
+
+// =============== Login page ===========
+
+.login-page{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    .login-card{
+        width: 450px;
+        padding: 40px 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 12px #81818133;
+        text-align: center;
+        .logo-box{
+            img{
+                width: 150px;
+            }
+        }
+        h2{
+            margin: 20px 0;
+            color: #4c4c4c;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            input{
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+            input[type="submit"]{
+                background: #c586a5;
+                font-size: 18px;
+                color: #fff;
+                font-weight: 500;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+    }
+}
