@@ -7,7 +7,6 @@ import { toggle } from '../redux/slices/sidebarToggle'
 import { Link } from 'react-router-dom'
 import { MdAttachMoney } from 'react-icons/md'
 import { FaRegMessage, FaRegUser } from 'react-icons/fa6'
-import { CiCloudSun } from 'react-icons/ci'
 import { darkModeToggle } from '../redux/slices/darkModeSlice'
 import { logout } from '../redux/slices/authSlice'
 
@@ -52,6 +51,9 @@ const Header = () => {
 
   const user = useSelector((state) => state.auth.currentUser);
 
+  {console.log(user);
+  }
+
   const handleLogout = () => {
     dispatch(logout());
     localStorage.clear();
@@ -77,7 +79,7 @@ const Header = () => {
             <img src={Images.profileIcon} alt="profile icon" />
           </div>
           <div className="admin-name">
-            <p>Hi.. <span><b>{user?.firstname}</b></span></p>
+            <p>Hi.. <span><b>{user?.firstname+" "+ user?.lastname}</b></span></p>
           </div>
 
 
@@ -85,7 +87,7 @@ const Header = () => {
 
           {showDropdown && (
             <div className="sub-link-drop-down" ref={dropdownRef}>
-              <p>Welcome Ankit!</p>
+              <p>Welcome {user?.firstname}!</p>
               <div className="dropdown">
                 <ul>
                   <li><Link to={"/admin-profile"}><FaRegUser /> Profile</Link></li>
