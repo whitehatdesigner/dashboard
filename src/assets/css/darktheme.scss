@@ -43,4 +43,16 @@
             }
         }
     }
+    .main-lead-cards{
+        background-color: #000;
+        .card-data{
+            color: #fff !important;
+        }
+        .card-tagline{
+            color: #acacac;
+        }
+        .item-details{
+            color: #ffffff;
+        }
+    }
 }

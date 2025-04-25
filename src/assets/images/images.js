@@ -10,8 +10,9 @@ import topwearImage from './categories/topwear.jpg'
 import winterwearImage from './categories/winterwear.jpg'
 import bottomwearImage from './categories/bottomwear.jpg'
 import profileImg from './user/ankit-img.jpg'
+import riyaProfileImg from './user/riya.jpg'
 
 
 export const Images = {
-    logo, profileIcon, dummyImg, p1, uploadImg, menImage, womenImage, kidsImage, topwearImage, winterwearImage, bottomwearImage, profileImg
+    logo, profileIcon, dummyImg, p1, uploadImg, menImage, womenImage, kidsImage, topwearImage, winterwearImage, bottomwearImage, profileImg, riyaProfileImg
 }

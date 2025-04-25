@@ -12,6 +12,7 @@ const AddProducts = () => {
   const [price, setPrice] = useState('110');
   const [discount, setDiscount] = useState('30');
   const [discountPrice, setDiscountPrice] = useState('80');
+  const [stock, setStock] = useState('500')
 
 
   {console.log(size);}
@@ -48,7 +49,7 @@ const AddProducts = () => {
 
           <div className="stock">
             <span className='preview-heading'>Stock: </span>
-            <p>500 Items Left</p>
+            <p>{stock} Items Left</p>
           </div>
         </div>
       </div>
@@ -56,7 +57,7 @@ const AddProducts = () => {
 
 
       <div className="main-add-product box">
-        <AddProductForm pimg1={pimg1} setPimg1={setPimg1} pTitle={pTitle} setPTitle={setPTitle} setCategory={setCategory} setSubCategory={setSubCategory} setSize={setSize} setPrice={setPrice} setDiscount={setDiscount} setDiscountPrice={setDiscountPrice} discount={discount} price={price} />
+        <AddProductForm pimg1={pimg1} setPimg1={setPimg1} pTitle={pTitle} setPTitle={setPTitle} setCategory={setCategory} setSubCategory={setSubCategory} setSize={setSize} setPrice={setPrice} setDiscount={setDiscount} setDiscountPrice={setDiscountPrice} discount={discount} price={price} setStock={setStock} />
       </div>
     </div>
   )

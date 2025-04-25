@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Images } from '../../assets/images/images'
 
-const AddProductForm = ({ pimg1, setPimg1, setPTitle, setCategory, setSubCategory, setSize, setPrice, setDiscount, setDiscountPrice, discount, price }) => {
+const AddProductForm = ({ pimg1, setPimg1, setPTitle, setCategory, setSubCategory, setSize, setPrice, setDiscount, setDiscountPrice, discount, price, setStock }) => {
     const [pimg2, setPimg2] = useState(null);
     const [pimg3, setPimg3] = useState(null);
 
@@ -143,7 +143,7 @@ const AddProductForm = ({ pimg1, setPimg1, setPTitle, setCategory, setSubCategor
 
                             <div className="input-box">
                                 <label htmlFor="product-stock">Stock</label>
-                                <input type="text" placeholder='500' id='product-stock' />
+                                <input type="text" placeholder='500' id='product-stock' onChange={(e) => setStock(e.target.value)} />
                             </div>
                         </div>
 
