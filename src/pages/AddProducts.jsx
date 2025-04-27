@@ -18,17 +18,18 @@ const AddProducts = () => {
   const [discountPrice, setDiscountPrice] = useState('80');
   const [stock, setStock] = useState('500')
 
-  const {productId} = useParams();
+  const { productId } = useParams();
 
-  {console.log(productId);}
+  { console.log(productId); }
+
 
 
   useEffect(() => {
 
     if (productId) {
       const foundProduct = ShopProducts.find((item) => item._id === productId);
-        console.log(foundProduct);
-        
+      console.log("foundProduct======>>>>>", foundProduct);
+
       if (foundProduct) {
         setPTitle(foundProduct.name);
         setCategory(foundProduct.category);
@@ -40,13 +41,13 @@ const AddProducts = () => {
         setSize(foundProduct.sizes);
         setPimg1(foundProduct.image[0]);
       }
-      
+
     } else {
       console.log('error');
-      
+
     }
 
-  },[productId])
+  }, [productId])
 
 
   return (
@@ -55,7 +56,7 @@ const AddProducts = () => {
 
       <div className="preview-product box">
         <div className="img-box">
-          <img src={pimg1?.name ? URL.createObjectURL(pimg1) : Images.p1} alt="img" />
+          <img src={pimg1 ? pimg1.name ? URL.createObjectURL(pimg1) : pimg1 : Images.p1} alt="img" />
         </div>
         <div className="item-content">
           <h4>{pTitle}</h4>
