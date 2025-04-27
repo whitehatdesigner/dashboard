@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaStar, FaShoppingCart, FaEdit, FaTrash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PrimaryBtn from '../components/PrimaryBtn';
 import { IoEyeOutline } from 'react-icons/io5';
 import { CiEdit } from 'react-icons/ci';
@@ -12,6 +12,12 @@ import { selectFilterProducts, selectPaginatedProducts, selectTotalPages, setCur
 
 const ProductsList = () => {
 
+  const navigate = useNavigate();
+
+  const handleProduct = (ProdcutId) => {
+    navigate(`/addproducts/${ProdcutId}`);
+  }
+  
   const dispatch = useDispatch();
   const paginatedProducts = useSelector(selectPaginatedProducts);
   const currentPage = useSelector(state => state.productSlice.currentPage);
@@ -69,7 +75,7 @@ const ProductsList = () => {
           {paginatedProducts.map((product, index) => (
             <tr key={index}>
               <td><input type="checkbox" /></td>
-              <td>{index}</td>
+              <td>{product._id}</td>
               <td className='product-details'>
                 <div className="product-img">
                   <img src={product.image[0]} alt="img" />
@@ -98,7 +104,7 @@ const ProductsList = () => {
               </td>
               <td>
                 <div className="action-buttons">
-                  <button className="cart-button">
+                  <button className="cart-button" onClick={() => {handleProduct(product._id)}}>
                     <IoEyeOutline />
                   </button>
                   <button className="edit-button">

@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import { Images } from '../assets/images/images'
 import AddProductForm from '../components/forms/AddProductForm'
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { ShopProducts } from '../dummyData/ShopProducts';
+
 
 const AddProducts = () => {
 
@@ -14,8 +18,37 @@ const AddProducts = () => {
   const [discountPrice, setDiscountPrice] = useState('80');
   const [stock, setStock] = useState('500')
 
+  const {productId} = useParams();
 
-  {console.log(size);}
+  {console.log(productId);}
+
+
+  useEffect(() => {
+
+    if (productId) {
+      const foundProduct = ShopProducts.find((item) => item._id === productId);
+        console.log(foundProduct);
+        
+      if (foundProduct) {
+        setPTitle(foundProduct.name);
+        setCategory(foundProduct.category);
+        setSubCategory(foundProduct.subCategory);
+        setPrice(foundProduct.price);
+        setDiscount(foundProduct.discount);
+        setDiscountPrice(foundProduct.price - (foundProduct.price * foundProduct.discount / 100));  // simple logic
+        setStock(foundProduct.stock);
+        setSize(foundProduct.sizes);
+        setPimg1(foundProduct.image[0]);
+      }
+      
+    } else {
+      console.log('error');
+      
+    }
+
+  },[productId])
+
+
   return (
     <div className='addProducts'>
 

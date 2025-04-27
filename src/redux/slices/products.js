@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { useState } from 'react';
-import { ShopProducts } from './ShopProducts';
+import { ShopProducts } from '../../dummyData/ShopProducts';
 
 
 // const [products, setProducts] = useState();
