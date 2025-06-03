@@ -22,7 +22,7 @@ const Dashboard = () => {
           <Header />
         </div>
         <div className="data-area main-body">
-          {location.pathname === "/" ? <Ecommerce /> : <Outlet />}
+          <Outlet />
         </div>
       </div>
 

@@ -29,6 +29,10 @@ const router = createBrowserRouter(
         </ProtectedRoute>
       ) ,
       children:[
+          {
+          path:"",
+          element:<Ecommerce/>
+        },
         {
           path:"/ecommerce",
           element:<Ecommerce/>
